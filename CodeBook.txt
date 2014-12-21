@@ -1,0 +1,132 @@
+Code Book for Human Activity Recognition Using Smartphone Analysis
+Created: 12-21-2014
+Updated: 12-21-2014
+
+README.md: Markdown file containing analysis process methodology.
+README.txt: Text file of source data descriptions and collection methodology.
+
+SOURCE DATA AND STUDY INFORMATION: 
+=============================
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+- 'README.txt'
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+- 'features.txt': List of all features.
+- 'activity_labels.txt': Links the class labels with their activity name.
+- 'train/X_train.txt': Training set.
+- 'train/y_train.txt': Training labels.
+- 'test/X_test.txt': Test set.
+- 'test/y_test.txt': Test labels.
+
+
+R PROGRAM VARIABLES
+=================
+
+filePath: String used to pass file location to file operations
+activities: Data frame storing list of activity codes and labels
+features: Data frame storing list of vector measurement descriptions
+foilist: Subset of features data frame for measurements of Mean, mean or std
+foi: numeric position of vector measurement in the x_(train/test) dataset 
+
+trainx/testx: dataframe imports of vector measurement values
+TranActivityData/TestActivityData: subset of trainx/testx matching foilist
+trainy/testy: dataframe of activity listing corresponding to vector measurement values
+trainsub/testsub: dataframe of subject listing corresponding to vector measurement values
+
+Activity: dataframe used to match activity codes and labels
+trainActivitySubjectData/testActivitySubjectData: data frame result from column binding testsub/trainsub 
+   with Activity and trainActivityData/testActivityData
+ActivityMean: dataframe average of vector measurements in foilist by subject and activity
+
+OUTPUT FILE VARIABLES
+===========================
+Subject: Categorial variable between 1 and 30 identifying subject performing test
+Activity: Categorial variable of activity performed during testing
+tBodyGyroMag-max(): Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroMag-min(): Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroMag-sma(): Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroMag-arCoeff()2: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroMag-arCoeff()3: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroMag-arCoeff()4: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-skewness()-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-kurtosis()-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-skewness()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-bandsEnergy()-9,16: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-bandsEnergy()-17,24: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-bandsEnergy()-25,32: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-energy()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-energy()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-iqr()-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-entropy()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-maxInds-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-maxInds-Y: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-std()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-std()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-mad()-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-max()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-min()-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-min()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-57,64: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-1,16: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-17,32: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-1,8: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-9,16: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-17,24: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-bandsEnergy()-1,24: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-bandsEnergy()-9,16: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-bandsEnergy()-25,48: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-bandsEnergy()-17,24.1: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-kurtosis()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAcc-bandsEnergy()-17,24: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-49,64: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyGyro-mean()-X: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-1,24: Continuous variable, mean of measurement vector values between [-1,1]
+fBodyAccJerk-bandsEnergy()-9,16.1: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-mean()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-std()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-std()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-sma(): Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-energy()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-energy()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-std()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-mad()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tGravityAcc-mad()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-min()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-min()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-sma(): Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-arCoeff()-X,2: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-arCoeff()-X,3: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-arCoeff()-X,4: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-energy()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-energy()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-energy()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroJerk-arCoeff()-Z,4: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroJerk-correlation()-X,Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroJerk-correlation()-X,Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccMag-arCoeff()1: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccMag-arCoeff()2: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccMag-arCoeff()3: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroJerk-correlation()-Y,Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccMag-mean(): Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccMag-std(): Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-arCoeff()-Z,4: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-mean()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAccJerk-correlation()-X,Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-max()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-min()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-max()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-arCoeff()-Z,3: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyroJerk-mean()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-arCoeff()-Z,4: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-entropy()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-arCoeff()-X,3: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyGyro-entropy()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-mean()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-mean()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-std()-X: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-mean()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-std()-Y: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-std()-Z: Continuous variable, mean of measurement vector values between [-1,1]
+tBodyAcc-mad()-X: Continuous variable, mean of measurement vector values between [-1,1]
+
+
+
