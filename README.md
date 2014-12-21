@@ -1,4 +1,4 @@
-Get-Data Repository Overview
+# Get-Data Repository Overview
 
 
 Repository Description: 
@@ -11,8 +11,8 @@ Source data:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
-Library: 
-=========
+Library(s): 
+===========
 plyr
 
 
@@ -27,9 +27,9 @@ Program Step(s):
     including: mean, Mean and std.  
  
 2.  Imports tables from two UCI HAR Datasets: Train and Test.   Example file content imported:
-	-x_train.txt: Sensor data
-	-y_train.txt: Activity list
-	-subject_train.txt: Subject list
+	* x_train.txt: Sensor data
+	* y_train.txt: Activity list
+	* subject_train.txt: Subject list
 		
 3.  x_train/x_test vector measurements are is subsetted to measures of mean, Mean or std.  Subject and activity are binded to vector measurements.  Train and test measurement datasets are combined.  Mean of each vector measurement are calculated at the subject and activity level.  Tidy dataset with averages is outputed to SubjectActivityMeans.txt
 
