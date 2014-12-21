@@ -27,12 +27,11 @@ Program Step(s):
     including: mean, Mean and std.  
  
 2.  Imports tables from two UCI HAR Datasets: Train and Test.   Example file content imported:
-	x_train.txt: Sensor data
-	y_train.txt: Activity list
-	subject_train.txt: Subject list
+	-x_train.txt: Sensor data
+	-y_train.txt: Activity list
+	-subject_train.txt: Subject list
 		
-3.  x_<test/train> is subsetted only to fields with mean, Mean or std.  Subject and Activity appended to datasets.  
-    Train and test data are combined and averages created for subject and activity which is outputted to SubjectActivityMeans.txt
+3.  x_train/x_test vector measurements are is subsetted to measures of mean, Mean or std.  Subject and activity are binded to vector measurements.  Train and test measurement datasets are combined.  Mean of each vector measurement are calculated at the subject and activity level.  Tidy dataset with averages is outputed to SubjectActivityMeans.txt
 
 Output File(s):
 =================
