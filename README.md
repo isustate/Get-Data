@@ -1,22 +1,28 @@
-Get-Data
-========
+Get-Data Repository Overview
+
 
 Repository Description: 
+========================
 R program that processes sensor signal data from Samsung Galaxy S II smartphone.  Program reads test and training datasets and outputs a tidy dataset of the average of sensor data for each subject and activity.  
 
 
 Source data:
+==============
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
 Library: 
+=========
 plyr
 
 
 R code:
+===============
 run_analysis.R
 
+
 Program Steps:
+===============
 1.  Imports activity and sensor name from Activity and Features files.  Features list is filtered for fields
     including: mean, Mean and std.  
  
