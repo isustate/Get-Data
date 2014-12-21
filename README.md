@@ -22,12 +22,12 @@ Program Step(s):
 1.  Imports activity and sensor name from Activity and Features files.  Features list is filtered for fields
     including: mean, Mean and std.  
  
-2.  Imports tables from two UCI HAR Datasets: Train and Test.   Example file content imported:
-	* x_train.txt: Sensor data
+2.  Imports tables from two UCI HAR Datasets: Train and Test.
+	* x_train.txt: Sensor vector measurement data
 	* y_train.txt: Activity list
 	* subject_train.txt: Subject list
 		
-3.  x_train/x_test vector measurements are is subsetted to measures of mean, Mean or std.  Subject and activity are binded to vector measurements.  Train and test measurement datasets are combined.  Mean of each vector measurement are calculated at the subject and activity level.  Tidy dataset with averages is outputed to SubjectActivityMeans.txt
+3.  x_train/x_test sensor vector measurements are subsetted to measurements of mean, Mean or std.  Subject and activity are binded to vector measurements.  Train and test datasets are combined to create dataset with 30 total subjects and 6 activities.  Mean of each vector measurement are calculated at the subject and activity level.  Tidy dataset with averages is written to SubjectActivityMeans.txt
 
 Output File(s):
 =================
