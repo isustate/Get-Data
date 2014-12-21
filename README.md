@@ -1,8 +1,4 @@
 # Get-Data Repository Overview
-
-
-Repository Description: 
-========================
 R program that processes sensor signal data from Samsung Galaxy S II smartphone.  Program reads test and training datasets and outputs a tidy dataset of the average of sensor data for each subject and activity.  
 
 
