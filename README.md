@@ -21,7 +21,7 @@ R code:
 run_analysis.R
 
 
-Program Steps:
+Program Step(s):
 ===============
 1.  Imports activity and sensor name from Activity and Features files.  Features list is filtered for fields
     including: mean, Mean and std.  
@@ -33,3 +33,7 @@ Program Steps:
 		
 3.  x_<test/train> is subsetted only to fields with mean, Mean or std.  Subject and Activity appended to datasets.  
     Train and test data are combined and averages created for subject and activity which is outputted to SubjectActivityMeans.txt
+
+Output File(s):
+=================
+SubjectActivityMeans.txt
